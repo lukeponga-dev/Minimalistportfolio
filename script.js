@@ -1,34 +1,29 @@
-document.addEventListener('DOMContentLoaded', () => {
+const portfolioApp = (function() {
+    // Private variables and functions, not accessible from outside the module
     const form = document.getElementById('contact-form');
     const messageDiv = document.getElementById('form-message');
     const toggleButton = document.getElementById('theme-toggle');
     const sunIcon = document.getElementById('sun-icon');
     const moonIcon = document.getElementById('moon-icon');
 
-    // Handle form submission
-    form.addEventListener('submit', (e) => {
-        e.preventDefault(); // Prevent default form submission
-
-        // Simulate a successful form submission
+    // Private function to handle form submission
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
         console.log('Form submitted!');
         console.log('Name:', document.getElementById('name').value);
         console.log('Email:', document.getElementById('email').value);
         console.log('Message:', document.getElementById('message').value);
 
-        // Show the success message
         messageDiv.classList.remove('hidden');
-
-        // Clear the form fields
         form.reset();
 
-        // Hide the message after a few seconds
         setTimeout(() => {
             messageDiv.classList.add('hidden');
-        }, 5000); // Hide after 5 seconds
-    });
+        }, 5000);
+    };
 
-    // Handle theme toggle
-    toggleButton.addEventListener('click', () => {
+    // Private function to handle theme toggling
+    const handleThemeToggle = () => {
         const isDarkMode = document.documentElement.classList.contains('dark');
         if (isDarkMode) {
             document.documentElement.classList.remove('dark');
@@ -41,5 +36,21 @@ document.addEventListener('DOMContentLoaded', () => {
             sunIcon.classList.add('hidden');
             moonIcon.classList.remove('hidden');
         }
-    });
+    };
+
+    // This is the public API of the module
+    const init = () => {
+        form.addEventListener('submit', handleFormSubmit);
+        toggleButton.addEventListener('click', handleThemeToggle);
+    };
+
+    // Return the public API
+    return {
+        init: init
+    };
+})();
+
+// Initialize the application on DOM content loaded
+document.addEventListener('DOMContentLoaded', () => {
+    portfolioApp.init();
 });
