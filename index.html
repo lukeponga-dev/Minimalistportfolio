@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luke Ponga | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1f2937;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #4f46e5;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #4338ca;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-300 antialiased leading-relaxed">
+
+  <!-- Navigation Bar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 py-4 transition-all duration-300">
+    <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
+      <a href="#" class="text-xl font-bold text-white">Luke Ponga</a>
+      <div class="hidden md:flex space-x-8">
+        <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">About</a>
+        <a href="#skills" class="text-gray-300 hover:text-white transition-colors duration-300">Skills</a>
+        <a href="#projects" class="text-gray-300 hover:text-white transition-colors duration-300">Projects</a>
+        <a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300">Contact</a>
+      </div>
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-800 px-4 pt-2 pb-4">
+      <div class="flex flex-col space-y-3">
+        <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">About</a>
+        <a href="#skills" class="text-gray-300 hover:text-white transition-colors duration-300">Skills</a>
+        <a href="#projects" class="text-gray-300 hover:text-white transition-colors duration-300">Projects</a>
+        <a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mx-auto px-4 py-16">
+    <!-- Header Section -->
+    <header class="text-center mb-16 fade-in">
+      <h1 class="text-5xl md:text-6xl font-extrabold text-white tracking-tight">Luke Ponga</h1>
+      <p class="text-xl md:text-2xl font-light text-gray-400 mt-2">Junior Software Developer | Hamilton, NZ</p>
+    </header>
+
+    <!-- About Me Section -->
+    <section id="about" class="max-w-3xl mx-auto text-center fade-in">
+      <h2 class="text-4xl font-bold text-white mb-4">About Me</h2>
+      <p class="text-lg text-gray-400">
+        I'm a passionate developer with a strong foundation in backend systems, IT support, and web technologies. I thrive in collaborative environments and love solving real-world problems through tech.
+      </p>
+      <hr class="my-12 border-t-2 border-indigo-500">
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="max-w-4xl mx-auto fade-in">
+      <h2 class="text-4xl font-bold text-white mb-8 text-center">Skills</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+        <!-- Languages & Frameworks Card -->
+        <div class="p-6 rounded-2xl bg-gray-800 hover:bg-gray-700 transition-colors duration-300">
+          <h3 class="text-2xl font-semibold text-white mb-2">Languages & Frameworks</h3>
+          <ul class="text-gray-300">
+            <li>C#, Java, HTML/CSS/JS</li>
+            <li>SQL, .NET, Azure</li>
+            <li>React Native</li>
+          </ul>
+        </div>
+        <!-- Tools & Software Card -->
+        <div class="p-6 rounded-2xl bg-gray-800 hover:bg-gray-700 transition-colors duration-300">
+          <h3 class="text-2xl font-semibold text-white mb-2">Tools & Software</h3>
+          <ul class="text-gray-300">
+            <li>Microsoft Office</li>
+            <li>Git, GitHub</li>
+            <li>Visual Studio, VS Code</li>
+          </ul>
+        </div>
+        <!-- Methodologies & Concepts Card -->
+        <div class="p-6 rounded-2xl bg-gray-800 hover:bg-gray-700 transition-colors duration-300">
+          <h3 class="text-2xl font-semibold text-white mb-2">Methodologies & Concepts</h3>
+          <ul class="text-gray-300">
+            <li>ISTQB CTFL</li>
+            <li>Natural Language AI</li>
+            <li>Agile Development</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="my-12 border-t-2 border-indigo-500">
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="max-w-5xl mx-auto fade-in">
+      <h2 class="text-4xl font-bold text-white mb-8 text-center">Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <!-- Project card for the Java Data Structures repository -->
+        <div class="project bg-gray-800 p-8 rounded-3xl hover:bg-gray-700 transition-colors duration-300">
+          <h3 class="text-2xl font-semibold text-white mb-2">Data Structures & Algorithms</h3>
+          <p class="text-gray-400 mb-4">
+            University assignments on implementing core data structures in Java.
+          </p>
+          <a href="https://github.com/lukeponga-dev/compx201-university-java-data-structures" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-indigo-400 hover:underline">
+            View on GitHub
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4-10h6m0 0l-6 6"></path></svg>
+          </a>
+        </div>
+        <!-- Project card for the Job Application Tracker -->
+        <div class="project bg-gray-800 p-8 rounded-3xl hover:bg-gray-700 transition-colors duration-300">
+          <h3 class="text-2xl font-semibold text-white mb-2">Job Application Tracker</h3>
+          <p class="text-gray-400 mb-4">
+            A practical web-based tool for tracking job applications and volunteer work.
+          </p>
+          <a href="https://github.com/lukeponga-dev/JobApplication-tracker" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-indigo-400 hover:underline">
+            View on GitHub
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4-10h6m0 0l-6 6"></path></svg>
+          </a>
+        </div>
+        <!-- Project card for the Kiwi Car Checker -->
+        <div class="project bg-gray-800 p-8 rounded-3xl hover:bg-gray-700 transition-colors duration-300">
+          <h3 class="text-2xl font-semibold text-white mb-2">Kiwi Car Checker</h3>
+          <p class="text-gray-400 mb-4">
+            A TypeScript-based application for checking vehicle information in New Zealand.
+          </p>
+          <a href="https://github.com/lukeponga-dev/kiwi-car-checker" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-indigo-400 hover:underline">
+            View on GitHub
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4-10h6m0 0l-6 6"></path></svg>
+          </a>
+        </div>
+        <!-- More projects placeholder card -->
+        <div class="project bg-gray-800 p-8 rounded-3xl hover:bg-gray-700 transition-colors duration-300">
+          <h3 class="text-2xl font-semibold text-white mb-2">More Projects</h3>
+          <p class="text-gray-400 mb-4">
+            Stay tuned for updates, or check out my GitHub profile.
+          </p>
+          <a href="https://github.com/lukeponga-dev" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-indigo-400 hover:underline">
+            Visit My GitHub
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4-10h6m0 0l-6 6"></path></svg>
+          </a>
+        </div>
+      </div>
+      <hr class="my-12 border-t-2 border-indigo-500">
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="max-w-xl mx-auto text-center fade-in">
+      <h2 class="text-4xl font-bold text-white mb-4">Contact</h2>
+      <p class="text-lg">
+        <span class="text-indigo-500">Email:</span> <a href="mailto:lukeponga9@gmail.com" class="hover:underline text-gray-300">lukeponga9@gmail.com</a>
+      </p>
+    </section>
+  </main>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="fixed bottom-8 right-8 bg-indigo-600 hover:bg-indigo-700 text-white p-3 rounded-full shadow-lg transition-opacity duration-300 opacity-0 invisible">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+  </button>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 px-4 text-gray-500">
+    <p>&copy; 2025 Luke Ponga</p>
+  </footer>
+
+  <script>
+    // Back to Top functionality
+    const backToTopButton = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopButton.classList.remove('opacity-0', 'invisible');
+        backToTopButton.classList.add('opacity-100', 'visible');
+      } else {
+        backToTopButton.classList.remove('opacity-100', 'visible');
+        backToTopButton.classList.add('opacity-0', 'invisible');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Mobile menu functionality
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+    
+    // Navbar background change on scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-gray-900', 'shadow-lg');
+        navbar.classList.remove('bg-gray-900/90');
+      } else {
+        navbar.classList.remove('bg-gray-900', 'shadow-lg');
+        navbar.classList.add('bg-gray-900/90');
+      }
+    });
+
+    // New JavaScript for the fade-in-on-scroll functionality
+    document.addEventListener("DOMContentLoaded", function() {
+      // Select all elements with the 'fade-in' class
+      const sections = document.querySelectorAll('.fade-in');
+
+      // Create an Intersection Observer
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          // If the element is visible in the viewport
+          if (entry.isIntersecting) {
+            // Add the 'is-visible' class to trigger the animation
+            entry.target.classList.add('is-visible');
+            // Stop observing the element once it has animated
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        // Options for the observer: 
+        // root: null (default, uses the viewport)
+        // rootMargin: '0px' (default, no margin)
+        // threshold: 0.1 (trigger when 10% of the element is visible)
+        threshold: 0.1 
+      });
+
+      // Observe each section
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+    });
+  </script>
+
+</body>
+  </html>
