@@ -7,56 +7,26 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Global styles for the cyberpunk theme */
     body {
       font-family: 'Roboto Mono', monospace;
-      background-color: #0c0c16; /* Slightly deeper background for better contrast */
-      color: #00ffcc; /* A bit brighter cyan for text readability */
+      background-color: #0c0c16;
+      color: #00ffcc;
       text-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
-      scroll-behavior: smooth; /* Enables smooth scrolling for navigation */
+      scroll-behavior: smooth;
     }
     h1, h2, h3 {
       font-family: 'Press Start 2P', cursive;
-      color: #ff3399; /* A slightly more readable magenta */
+      color: #ff3399;
       text-shadow: 0 0 8px rgba(255, 51, 153, 0.7);
     }
-    
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #1a1a33;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #ff3399;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #cc227a;
-    }
-
-    /* Floating animation for the hero avatar */
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
-    }
-    .floating {
-      animation: float 6s ease-in-out infinite;
-    }
-
-    /* Neon box shadow effect for cards and sections */
-    .neon-shadow {
-      box-shadow: 0 0 15px rgba(0, 255, 204, 0.5), 0 0 20px rgba(255, 51, 153, 0.5);
-      transition: all 0.3s ease-in-out;
-    }
-    .neon-shadow:hover {
-      box-shadow: 0 0 25px rgba(0, 255, 204, 0.8), 0 0 35px rgba(255, 51, 153, 0.8);
-      transform: translateY(-5px);
-    }
-    
-    /* Glitch effect for buttons and links */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #1a1a33; }
+    ::-webkit-scrollbar-thumb { background: #ff3399; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #cc227a; }
+    @keyframes float { 0% {transform: translateY(0);} 50% {transform: translateY(-10px);} 100% {transform: translateY(0);} }
+    .floating { animation: float 6s ease-in-out infinite; }
+    .neon-shadow { box-shadow: 0 0 15px rgba(0,255,204,0.5), 0 0 20px rgba(255,51,153,0.5); transition: all 0.3s ease-in-out; }
+    .neon-shadow:hover { box-shadow: 0 0 25px rgba(0,255,204,0.8), 0 0 35px rgba(255,51,153,0.8); transform: translateY(-5px); }
     @keyframes glitch {
       0% { transform: translate(0); text-shadow: 2px 2px #ff3399, -2px -2px #00ffcc; }
       20% { transform: translate(-3px, 3px); }
@@ -65,11 +35,7 @@
       80% { transform: translate(3px, -3px); }
       100% { transform: translate(0); text-shadow: 2px 2px #ff3399, -2px -2px #00ffcc; }
     }
-    .glitch-effect:hover {
-      animation: glitch 0.5s infinite;
-    }
-
-    /* Custom button styles */
+    .glitch-effect:hover { animation: glitch 0.5s infinite; }
     .btn {
       background: linear-gradient(90deg, #ff3399, #ff66b2);
       border: 2px solid #00ffcc;
@@ -82,13 +48,10 @@
       border-color: #ff3399;
       animation: glitch 0.5s infinite;
     }
-
-    /* Accessible focus state for keyboard navigation */
     a:focus-visible, button:focus-visible {
       outline: 2px solid #00ffcc;
       outline-offset: 2px;
     }
-
   </style>
 </head>
 <body class="antialiased leading-relaxed">
