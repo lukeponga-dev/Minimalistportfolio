@@ -1,3 +1,4 @@
+// main.js
 document.addEventListener('DOMContentLoaded', () => {
     const toggleButton = document.getElementById('theme-toggle');
     const sunIcon = document.getElementById('sun-icon');
@@ -7,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check for theme in local storage on page load
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
+        // Ensure to clear any default theme before adding the saved one
+        html.classList.remove('dark', 'light');
         html.classList.add(savedTheme);
     } else {
         // Default to dark mode if no preference is saved
