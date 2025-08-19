@@ -34,19 +34,56 @@
       opacity: 1;
       transform: translateY(0);
     }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+    .gradient-border {
+      position: relative;
+      border-radius: 1rem;
+      background: linear-gradient(0deg, #1f2937, #1f2937), 
+                  linear-gradient(45deg, #4f46e5, #ec4899, #f59e0b);
+      background-clip: padding-box, border-box;
+      background-origin: padding-box, border-box;
+      border: 2px solid transparent;
+    }
+    .skill-card:hover {
+      background: linear-gradient(145deg, #4f46e5, #4338ca);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.4);
+    }
   </style>
 </head>
 <body class="bg-gray-900 text-gray-300 antialiased leading-relaxed">
 
   <!-- Navigation Bar -->
-  <nav id="navbar" class="fixed top-0 w-full z-50 py-4 transition-all duration-300">
+  <nav id="navbar" class="fixed top-0 w-full z-50 py-4 transition-all duration-300 bg-gray-900/80 backdrop-blur-md">
     <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
-      <a href="#" class="text-xl font-bold text-white">Luke Ponga</a>
+      <a href="#" class="text-xl font-bold text-white flex items-center">
+        <span class="bg-indigo-600 w-6 h-6 rounded-md flex items-center justify-center mr-2">LP</span>
+        Luke Ponga
+      </a>
       <div class="hidden md:flex space-x-8">
-        <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">About</a>
-        <a href="#skills" class="text-gray-300 hover:text-white transition-colors duration-300">Skills</a>
-        <a href="#projects" class="text-gray-300 hover:text-white transition-colors duration-300">Projects</a>
-        <a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300">Contact</a>
+        <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300 relative group">
+          About
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 transition-all group-hover:w-full"></span>
+        </a>
+        <a href="#skills" class="text-gray-300 hover:text-white transition-colors duration-300 relative group">
+          Skills
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 transition-all group-hover:w-full"></span>
+        </a>
+        <a href="#projects" class="text-gray-300 hover:text-white transition-colors duration-300 relative group">
+          Projects
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 transition-all group-hover:w-full"></span>
+        </a>
+        <a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300 relative group">
+          Contact
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 transition-all group-hover:w-full"></span>
+        </a>
       </div>
       <!-- Mobile menu button -->
       <div class="md:hidden">
@@ -60,213 +97,228 @@
     <!-- Mobile menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-gray-800 px-4 pt-2 pb-4">
       <div class="flex flex-col space-y-3">
-        <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">About</a>
-        <a href="#skills" class="text-gray-300 hover:text-white transition-colors duration-300">Skills</a>
-        <a href="#projects" class="text-gray-300 hover:text-white transition-colors duration-300">Projects</a>
-        <a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300">Contact</a>
+        <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300 py-2">About</a>
+        <a href="#skills" class="text-gray-300 hover:text-white transition-colors duration-300 py-2">Skills</a>
+        <a href="#projects" class="text-gray-300 hover:text-white transition-colors duration-300 py-2">Projects</a>
+        <a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300 py-2">Contact</a>
       </div>
     </div>
   </nav>
 
-  <main class="container mx-auto px-4 py-16">
+  <main class="container mx-auto px-4 py-16 mt-16">
     <!-- Header Section -->
     <header class="text-center mb-16 fade-in">
-      <h1 class="text-5xl md:text-6xl font-extrabold text-white tracking-tight">Luke Ponga</h1>
-      <p class="text-xl md:text-2xl font-light text-gray-400 mt-2">Junior Software Developer | Hamilton, NZ</p>
+      <div class="floating inline-block mb-6">
+        <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center text-4xl font-bold text-white shadow-xl">
+          LP
+        </div>
+      </div>
+      <h1 class="text-5xl md:text-6xl font-extrabold text-white tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">
+        Luke Ponga
+      </h1>
+      <p class="text-xl md:text-2xl font-light text-gray-400 mt-4">Junior Software Developer | Hamilton, NZ</p>
+      <div class="mt-8 flex justify-center space-x-4">
+        <a href="mailto:lukeponga9@gmail.com" class="px-6 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-md text-white transition-colors duration-300 flex items-center">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+          Contact Me
+        </a>
+        <a href="https://github.com/lukeponga-dev" target="_blank" class="px-6 py-2 bg-gray-800 hover:bg-gray-700 rounded-md text-white transition-colors duration-300 flex items-center">
+          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          GitHub
+        </a>
+      </div>
     </header>
 
     <!-- About Me Section -->
-    <section id="about" class="max-w-3xl mx-auto text-center fade-in">
-      <h2 class="text-4xl font-bold text-white mb-4">About Me</h2>
-      <p class="text-lg text-gray-400">
-        I'm a passionate developer with a strong foundation in backend systems, IT support, and web technologies. I thrive in collaborative environments and love solving real-world problems through tech.
-      </p>
-      <hr class="my-12 border-t-2 border-indigo-500">
+    <section id="about" class="max-w-3xl mx-auto text-center fade-in mb-20">
+      <h2 class="text-4xl font-bold text-white mb-6">About Me</h2>
+      <div class="gradient-border p-8 rounded-2xl">
+        <p class="text-lg text-gray-300 leading-relaxed">
+          I'm a passionate developer with a strong foundation in backend systems, IT support, and web technologies. 
+          I thrive in collaborative environments and love solving real-world problems through tech. 
+          Currently based in Hamilton, NZ, I'm constantly learning and expanding my skill set to stay at the 
+          forefront of technology trends.
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <span class="px-4 py-2 bg-indigo-900/50 text-indigo-300 rounded-full text-sm">Backend Development</span>
+          <span class="px-4 py-2 bg-indigo-900/50 text-indigo-300 rounded-full text-sm">Problem Solving</span>
+          <span class="px-4 py-2 bg-indigo-900/50 text-indigo-300 rounded-full text-sm">Collaboration</span>
+          <span class="px-4 py-2 bg-indigo-900/50 text-indigo-300 rounded-full text-sm">Continuous Learning</span>
+        </div>
+      </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="max-w-4xl mx-auto fade-in">
-      <h2 class="text-4xl font-bold text-white mb-8 text-center">Skills</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+    <section id="skills" class="max-w-4xl mx-auto fade-in mb-20">
+      <h2 class="text-4xl font-bold text-white mb-12 text-center">Skills</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
         <!-- Languages & Frameworks Card -->
-        <div class="p-6 rounded-2xl bg-gray-800 hover:bg-gray-700 transition-colors duration-300">
-          <h3 class="text-2xl font-semibold text-white mb-2">Languages & Frameworks</h3>
-          <ul class="text-gray-300">
-            <li>C#, Java, HTML/CSS/JS</li>
-            <li>SQL, .NET, Azure</li>
-            <li>React Native</li>
+        <div class="skill-card p-6 rounded-2xl bg-gray-800 transition-all duration-300 cursor-default">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-indigo-900 flex items-center justify-center">
+            <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-semibold text-white mb-4">Languages & Frameworks</h3>
+          <ul class="text-gray-300 space-y-2">
+            <li class="flex items-center justify-center">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
+              C#, Java, HTML/CSS/JS
+            </li>
+            <li class="flex items-center justify-center">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
+              SQL, .NET, Azure
+            </li>
+            <li class="flex items-center justify-center">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
+              React Native
+            </li>
           </ul>
         </div>
         <!-- Tools & Software Card -->
-        <div class="p-6 rounded-2xl bg-gray-800 hover:bg-gray-700 transition-colors duration-300">
-          <h3 class="text-2xl font-semibold text-white mb-2">Tools & Software</h3>
-          <ul class="text-gray-300">
-            <li>Microsoft Office</li>
-            <li>Git, GitHub</li>
-            <li>Visual Studio, VS Code</li>
+        <div class="skill-card p-6 rounded-2xl bg-gray-800 transition-all duration-300 cursor-default">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-indigo-900 flex items-center justify-center">
+            <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-semibold text-white mb-4">Tools & Software</h3>
+          <ul class="text-gray-300 space-y-2">
+            <li class="flex items-center justify-center">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
+              Microsoft Office
+            </li>
+            <li class="flex items-center justify-center">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
+              Git, GitHub
+            </li>
+            <li class="flex items-center justify-center">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
+              Visual Studio, VS Code
+            </li>
           </ul>
         </div>
         <!-- Methodologies & Concepts Card -->
-        <div class="p-6 rounded-2xl bg-gray-800 hover:bg-gray-700 transition-colors duration-300">
-          <h3 class="text-2xl font-semibold text-white mb-2">Methodologies & Concepts</h3>
-          <ul class="text-gray-300">
-            <li>ISTQB CTFL</li>
-            <li>Natural Language AI</li>
-            <li>Agile Development</li>
+        <div class="skill-card p-6 rounded-2xl bg-gray-800 transition-all duration-300 cursor-default">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-indigo-900 flex items-center justify-center">
+            <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-semibold text-white mb-4">Methodologies & Concepts</h3>
+          <ul class="text-gray-300 space-y-2">
+            <li class="flex items-center justify-center">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
+              ISTQB CTFL
+            </li>
+            <li class="flex items-center justify-center">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
+              Natural Language AI
+            </li>
+            <li class="flex items-center justify-center">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
+              Agile Development
+            </li>
           </ul>
         </div>
       </div>
-      <hr class="my-12 border-t-2 border-indigo-500">
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="max-w-5xl mx-auto fade-in">
-      <h2 class="text-4xl font-bold text-white mb-8 text-center">Projects</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+    <section id="projects" class="max-w-5xl mx-auto fade-in mb-20">
+      <h2 class="text-4xl font-bold text-white mb-12 text-center">Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Project card for the Java Data Structures repository -->
-        <div class="project bg-gray-800 p-8 rounded-3xl hover:bg-gray-700 transition-colors duration-300">
-          <h3 class="text-2xl font-semibold text-white mb-2">Data Structures & Algorithms</h3>
-          <p class="text-gray-400 mb-4">
-            University assignments on implementing core data structures in Java.
+        <div class="project gradient-border p-8 rounded-2xl hover:shadow-xl transition-all duration-300">
+          <div class="flex items-center mb-4">
+            <div class="w-10 h-10 rounded-md bg-indigo-600 flex items-center justify-center mr-3">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-semibold text-white">Data Structures & Algorithms</h3>
+          </div>
+          <p class="text-gray-400 mb-6">
+            University assignments on implementing core data structures in Java. Demonstrates knowledge of BSTs, Heaps, and Linked Lists.
           </p>
-          <a href="https://github.com/lukeponga-dev/compx201-university-java-data-structures" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-indigo-400 hover:underline">
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-3 py-1 bg-indigo-900/40 text-indigo-300 rounded-full text-xs">Java</span>
+            <span class="px-3 py-1 bg-indigo-900/40 text-indigo-300 rounded-full text-xs">Data Structures</span>
+            <span class="px-3 py-1 bg-indigo-900/40 text-indigo-300 rounded-full text-xs">Algorithms</span>
+          </div>
+          <a href="https://github.com/lukeponga-dev/compx201-university-java-data-structures" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors duration-300">
             View on GitHub
             <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4-10h6m0 0l-6 6"></path></svg>
           </a>
         </div>
         <!-- Project card for the Job Application Tracker -->
-        <div class="project bg-gray-800 p-8 rounded-3xl hover:bg-gray-700 transition-colors duration-300">
-          <h3 class="text-2xl font-semibold text-white mb-2">Job Application Tracker</h3>
-          <p class="text-gray-400 mb-4">
-            A practical web-based tool for tracking job applications and volunteer work.
+        <div class="project gradient-border p-8 rounded-2xl hover:shadow-xl transition-all duration-300">
+          <div class="flex items-center mb-4">
+            <div class="w-10 h-10 rounded-md bg-indigo-600 flex items-center justify-center mr-3">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-semibold text-white">Job Application Tracker</h3>
+          </div>
+          <p class="text-gray-400 mb-6">
+            A practical web-based tool for tracking job applications and volunteer work with analytics and status tracking.
           </p>
-          <a href="https://github.com/lukeponga-dev/JobApplication-tracker" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-indigo-400 hover:underline">
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-3 py-1 bg-indigo-900/40 text-indigo-300 rounded-full text-xs">Web App</span>
+            <span class="px-3 py-1 bg-indigo-900/40 text-indigo-300 rounded-full text-xs">Productivity</span>
+            <span class="px-3 py-1 bg-indigo-900/40 text-indigo-300 rounded-full text-xs">Tracking</span>
+          </div>
+          <a href="https://github.com/lukeponga-dev/JobApplication-tracker" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors duration-300">
             View on GitHub
             <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4-10h6m0 0l-6 6"></path></svg>
           </a>
         </div>
         <!-- Project card for the Kiwi Car Checker -->
-        <div class="project bg-gray-800 p-8 rounded-3xl hover:bg-gray-700 transition-colors duration-300">
-          <h3 class="text-2xl font-semibold text-white mb-2">Kiwi Car Checker</h3>
-          <p class="text-gray-400 mb-4">
-            A TypeScript-based application for checking vehicle information in New Zealand.
+        <div class="project gradient-border p-8 rounded-2xl hover:shadow-xl transition-all duration-300">
+          <div class="flex items-center mb-4">
+            <div class="w-10 h-10 rounded-md bg-indigo-600 flex items-center justify-center mr-3">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-semibold text-white">Kiwi Car Checker</h3>
+          </div>
+          <p class="text-gray-400 mb-6">
+            A TypeScript-based application for checking vehicle information in New Zealand with a clean, intuitive interface.
           </p>
-          <a href="https://github.com/lukeponga-dev/kiwi-car-checker" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-indigo-400 hover:underline">
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-3 py-1 bg-indigo-900/40 text-indigo-300 rounded-full text-xs">TypeScript</span>
+            <span class="px-3 py-1 bg-indigo-900/40 text-indigo-300 rounded-full text-xs">NZ Data</span>
+            <span class="px-3 py-1 bg-indigo-900/40 text-indigo-300 rounded-full text-xs">Vehicle Info</span>
+          </div>
+          <a href="https://github.com/lukeponga-dev/kiwi-car-checker" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors duration-300">
             View on GitHub
             <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4-10h6m0 0l-6 6"></path></svg>
           </a>
         </div>
         <!-- More projects placeholder card -->
-        <div class="project bg-gray-800 p-8 rounded-3xl hover:bg-gray-700 transition-colors duration-300">
-          <h3 class="text-2xl font-semibold text-white mb-2">More Projects</h3>
-          <p class="text-gray-400 mb-4">
-            Stay tuned for updates, or check out my GitHub profile.
+        <div class="project gradient-border p-8 rounded-2xl hover:shadow-xl transition-all duration-300">
+          <div class="flex items-center mb-4">
+            <div class="w-10 h-10 rounded-md bg-indigo-600 flex items-center justify-center mr-3">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-semibold text-white">More Projects</h3>
+          </div>
+          <p class="text-gray-400 mb-6">
+            I'm actively working on new projects. Stay tuned for updates, or check out my GitHub profile for my latest activity and repositories.
           </p>
-          <a href="https://github.com/lukeponga-dev" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-indigo-400 hover:underline">
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-3 py-1 bg-indigo-900/40 text-indigo-300 rounded-full text-xs">Coming Soon</span>
+            <span class="px-3 py-1 bg-indigo-900/40 text-indigo-300 rounded-full text-xs">GitHub</span>
+            <span class="px-3 py-1 bg-indigo-900/40 text-indigo-300 rounded-full text-xs">Updates</span>
+          </div>
+          <a href="https://github.com/lukeponga-dev" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors duration-300">
             Visit My GitHub
-            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4-10h6m0 0l-6 6"></path></svg>
-          </a>
-        </div>
-      </div>
-      <hr class="my-12 border-t-2 border-indigo-500">
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="max-w-xl mx-auto text-center fade-in">
-      <h2 class="text-4xl font-bold text-white mb-4">Contact</h2>
-      <p class="text-lg">
-        <span class="text-indigo-500">Email:</span> <a href="mailto:lukeponga9@gmail.com" class="hover:underline text-gray-300">lukeponga9@gmail.com</a>
-      </p>
-    </section>
-  </main>
-
-  <!-- Back to Top Button -->
-  <button id="backToTop" class="fixed bottom-8 right-8 bg-indigo-600 hover:bg-indigo-700 text-white p-3 rounded-full shadow-lg transition-opacity duration-300 opacity-0 invisible">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-    </svg>
-  </button>
-
-  <!-- Footer -->
-  <footer class="text-center py-6 px-4 text-gray-500">
-    <p>&copy; 2025 Luke Ponga</p>
-  </footer>
-
-  <script>
-    // Back to Top functionality
-    const backToTopButton = document.getElementById('backToTop');
-    
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        backToTopButton.classList.remove('opacity-0', 'invisible');
-        backToTopButton.classList.add('opacity-100', 'visible');
-      } else {
-        backToTopButton.classList.remove('opacity-100', 'visible');
-        backToTopButton.classList.add('opacity-0', 'invisible');
-      }
-    });
-    
-    backToTopButton.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-    
-    // Mobile menu functionality
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    mobileMenuButton.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-    
-    // Close mobile menu when clicking on a link
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-      });
-    });
-    
-    // Navbar background change on scroll
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('bg-gray-900', 'shadow-lg');
-        navbar.classList.remove('bg-gray-900/90');
-      } else {
-        navbar.classList.remove('bg-gray-900', 'shadow-lg');
-        navbar.classList.add('bg-gray-900/90');
-      }
-    });
-
-    // New JavaScript for the fade-in-on-scroll functionality
-    document.addEventListener("DOMContentLoaded", function() {
-      // Select all elements with the 'fade-in' class
-      const sections = document.querySelectorAll('.fade-in');
-
-      // Create an Intersection Observer
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          // If the element is visible in the viewport
-          if (entry.isIntersecting) {
-            // Add the 'is-visible' class to trigger the animation
-            entry.target.classList.add('is-visible');
-            // Stop observing the element once it has animated
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        // Options for the observer: 
-        // root: null (default, uses the viewport)
-        // rootMargin: '0px' (default, no margin)
-        // threshold: 0.1 (trigger when 10% of the element is visible)
-        threshold: 0.1 
-      });
-
-      // Observe each section
-      sections.forEach(section => {
-        observer.observe(section);
-      });
-    });
-  </script>
-
-</body>
-  </html>
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 0
