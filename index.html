@@ -1,55 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luke Ponga's Portfolio</title>
-    <!-- Use Google Fonts for the Inter font, as shown in the original design -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Load Tailwind CSS from CDN for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0d0d1a;
-        }
-        .neon-border {
-            border: 2px solid;
-            border-image: linear-gradient(to right, #6a40e1, #c534c0, #f963a7) 1;
-        }
-        .text-gradient {
-            background-image: linear-gradient(to right, #6a40e1, #c534c0, #f963a7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        /* Custom scrollbar styling for a better user experience on desktop */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1a1a2e;
-        }
-        ::-webkit-scrollbar-thumb {
-            background-color: #f963a7;
-            border-radius: 4px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-[#1a1a2e] text-white">
 
-    <!-- Main Container -->
-    <div class="container mx-auto px-4 py-8 max-w-5xl">
+    <div class="container mx-auto px-4 py-8 max-w-5xl relative">
 
-        <!-- Header Section -->
+        <button id="theme-toggle" class="absolute top-4 right-4 p-2 rounded-full border border-gray-400 text-gray-400 hover:text-[#f963a7] hover:border-[#f963a7] transition-colors duration-300 focus:outline-none">
+            <svg id="moon-icon" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3a9 9 0 00-9 9 9 9 0 009 9c2.614 0 5.084-.972 6.946-2.73a.75.75 0 00-.916-1.196 7.5 7.5 0 01-6.03 2.196A7.5 7.5 0 014.5 12a7.5 7.5 0 0110.598-6.666.75.75 0 001.076-1.04A9.001 9.001 0 0012 3z" />
+            </svg>
+            <svg id="sun-icon" class="h-6 w-6 hidden" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3a1 1 0 011 1v2a1 1 0 11-2 0V4a1 1 0 011-1zM18.364 4.929a1 1 0 01.707.293l1.414 1.414a1 1 0 01-1.414 1.414l-1.414-1.414a1 1 0 01.293-1.707zM21 11a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1zM18.364 18.071a1 1 0 01-.293.707l-1.414 1.414a1 1 0 01-1.414-1.414l1.414-1.414a1 1 0 011.707.293zM12 21a1 1 0 01-1-1v-2a1 1 0 112 0v2a1 1 0 01-1 1zM5.636 18.071a1 1 0 01-1.414-.293l-1.414-1.414a1 1 0 011.414-1.414l1.414 1.414a1 1 0 01-.293 1.707zM3 13a1 1 0 01-1-1v-2a1 1 0 112 0v2a1 1 0 01-1 1zM5.636 5.929a1 1 0 01.293-1.707l1.414-1.414a1 1 0 011.414 1.414l-1.414 1.414a1 1 0 01-1.707-.293zM12 8a4 4 0 100 8 4 4 0 000-8z"/>
+            </svg>
+        </button>
+
         <header class="text-center mb-12">
             <h1 class="text-5xl font-bold text-gradient mb-2">LP</h1>
             <h2 class="text-5xl font-bold mb-1">Luke Ponga</h2>
             <p class="text-gray-400">Freelance Software Developer</p>
         </header>
 
-        <!-- About Me Section -->
         <section id="about" class="mb-12">
             <h3 class="text-2xl font-bold text-center mb-4">About Me</h3>
             <div class="p-6 rounded-2xl neon-border shadow-lg">
@@ -59,12 +38,10 @@
             </div>
         </section>
 
-        <!-- My Skills Section -->
         <section id="skills" class="mb-12">
             <h3 class="text-2xl font-bold text-center mb-4">My Skills</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-                <!-- Column 1: Languages -->
                 <div class="p-6 rounded-2xl neon-border shadow-lg">
                     <h4 class="text-xl font-semibold text-gradient mb-3">Languages</h4>
                     <ul class="list-disc pl-5 text-gray-300 space-y-2">
@@ -77,7 +54,6 @@
                     </ul>
                 </div>
 
-                <!-- Column 2: Frameworks -->
                 <div class="p-6 rounded-2xl neon-border shadow-lg">
                     <h4 class="text-xl font-semibold text-gradient mb-3">Frameworks</h4>
                     <ul class="list-disc pl-5 text-gray-300 space-y-2">
@@ -89,7 +65,6 @@
                     </ul>
                 </div>
 
-                <!-- Column 3: Dev-Ops -->
                 <div class="p-6 rounded-2xl neon-border shadow-lg">
                     <h4 class="text-xl font-semibold text-gradient mb-3">Dev-Ops</h4>
                     <ul class="list-disc pl-5 text-gray-300 space-y-2">
@@ -103,12 +78,10 @@
             </div>
         </section>
 
-        <!-- Featured Projects Section -->
         <section id="projects" class="mb-12">
             <h3 class="text-2xl font-bold text-center mb-4">Featured Projects</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-                <!-- Project 1 -->
                 <div class="p-6 rounded-2xl neon-border shadow-lg">
                     <h4 class="text-xl font-semibold text-gradient mb-2">Doctors Appointments</h4>
                     <p class="text-gray-300 text-sm mb-4">
@@ -120,7 +93,6 @@
                     </div>
                 </div>
 
-                <!-- Project 2 -->
                 <div class="p-6 rounded-2xl neon-border shadow-lg">
                     <h4 class="text-xl font-semibold text-gradient mb-2">Vehicle API</h4>
                     <p class="text-gray-300 text-sm mb-4">
@@ -132,7 +104,6 @@
                     </div>
                 </div>
 
-                <!-- Project 3 -->
                 <div class="p-6 rounded-2xl neon-border shadow-lg">
                     <h4 class="text-xl font-semibold text-gradient mb-2">CosmicPic</h4>
                     <p class="text-gray-300 text-sm mb-4">
@@ -144,7 +115,6 @@
                     </div>
                 </div>
 
-                <!-- Project 4 -->
                 <div class="p-6 rounded-2xl neon-border shadow-lg">
                     <h4 class="text-xl font-semibold text-gradient mb-2">Crypto_Stats</h4>
                     <p class="text-gray-300 text-sm mb-4">
@@ -158,7 +128,6 @@
             </div>
         </section>
 
-        <!-- Education Section -->
         <section id="education" class="mb-12">
             <h3 class="text-2xl font-bold text-center mb-4">Education</h3>
             <div class="space-y-4">
@@ -181,15 +150,30 @@
             </div>
         </section>
 
-        <!-- Get In Touch Section -->
         <section id="contact" class="mb-12">
             <h3 class="text-2xl font-bold text-center mb-4">Get In Touch</h3>
-            <div class="p-6 rounded-2xl neon-border shadow-lg text-center">
-                <p class="text-gray-300 mb-4">
-                    I'm always open to discussing new projects, creative ideas, or opportunities. Feel free to contact me via my social media links below.
-                </p>
-                <!-- Social media icons - using Font Awesome for a cleaner look -->
-                <div class="flex justify-center space-x-6">
+            <div class="p-6 rounded-2xl neon-border shadow-lg">
+                <div id="form-message" class="hidden p-4 mb-4 rounded-xl text-center text-lg font-bold" style="border: 2px solid #34d399; background-color: #1a1a2e; color: #34d399;">
+                    Thanks for your message! I'll get back to you shortly.
+                </div>
+                <form id="contact-form" class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-sm font-medium mb-1">Your Name</label>
+                        <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f963a7] transition-all duration-200" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium mb-1">Your Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f963a7] transition-all duration-200" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium mb-1">Message</label>
+                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f963a7] transition-all duration-200" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full px-6 py-3 rounded-lg text-lg font-semibold btn-submit hover:opacity-80 transition-opacity duration-300">
+                        Send Message
+                    </button>
+                </form>
+                <div class="flex justify-center space-x-6 mt-6">
                     <a href="#" class="text-2xl text-white hover:text-[#f963a7] transition-colors duration-300">
                         <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.417 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.368-1.344-3.368-1.344-.454-1.154-1.11-1.46-1.11-1.46-.908-.619.069-.607.069-.607 1.004.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.086 2.902.829.091-.645.353-1.086.643-1.339-2.22-.253-4.555-1.115-4.555-4.954 0-1.092.39-1.988 1.029-2.681-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.022A9.68 9.68 0 0112 5.688c.85.004 1.704.111 2.504.327 1.909-1.292 2.749-1.022 2.749-1.022.546 1.379.202 2.398.099 2.651.64.693 1.028 1.589 1.028 2.681 0 3.84-2.339 4.691-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.577.688.482C21.056 20.218 24 16.44 24 12.017 24 6.484 19.522 2 14.017 2H12z" clip-rule="evenodd" />
@@ -203,8 +187,9 @@
                 </div>
             </div>
         </section>
-
     </div>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
