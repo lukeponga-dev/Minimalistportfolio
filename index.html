@@ -4,194 +4,298 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luke Ponga's Portfolio</title>
+    <!-- Use Google Fonts for the Inter font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Load Tailwind CSS from CDN for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Define CSS Custom Properties (Variables) for dark theme (default) */
+        :root {
+            --bg-color: #121212;
+            --text-color: #f0f0f0;
+            --card-bg: #1e1e1e;
+            --card-border: #333333;
+            --card-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            --section-title-color: #ff4d6d;
+            --text-muted: #d1d5db;
+            --btn-secondary-border: #444444;
+            --btn-secondary-text: #ff4d6d;
+            --link-hover-color: #3b82f6;
+            --btn-secondary-hover-bg: #2a2a2a;
+            --btn-secondary-hover-text: #fff;
+            --scrollbar-track-color: #1e1e1e;
+            --scrollbar-thumb-color: #ff4d6d;
+        }
+
+        /* Override variables for light theme */
+        .light {
+            --bg-color: #e0e0e0;
+            --text-color: #2c2c2c;
+            --card-bg: #ffffff;
+            --card-border: #cccccc;
+            --card-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            --section-title-color: #c90035;
+            --text-muted: #525252;
+            --btn-secondary-border: #cccccc;
+            --btn-secondary-text: #c90035;
+            --link-hover-color: #c90035;
+            --btn-secondary-hover-bg: #f0f0f0;
+            --btn-secondary-hover-text: #2c2c2c;
+            --scrollbar-track-color: #e0e0e0;
+            --scrollbar-thumb-color: #c90035;
+        }
+
+        /* Apply variables to general body and element styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.4s, color 0.4s;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            box-shadow: var(--card-shadow);
+        }
+        .section-title {
+            color: var(--section-title-color);
+        }
+        .text-muted-color {
+            color: var(--text-muted);
+        }
+        .btn-secondary {
+            border-color: var(--btn-secondary-border);
+            color: var(--btn-secondary-text);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .btn-secondary:hover {
+            background-color: var(--btn-secondary-hover-bg);
+            color: var(--btn-secondary-hover-text);
+        }
+        .contact-text {
+            color: var(--section-title-color);
+        }
+        .hover\:text-blue-500:hover {
+            color: var(--link-hover-color);
+        }
+
+        /* Custom scrollbar styling using variables */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--scrollbar-track-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--scrollbar-thumb-color);
+            border-radius: 4px;
+        }
+    </style>
 </head>
+<body>
 
-<body class="bg-[#1a1a2e] text-white">
+    <!-- Main Container -->
+    <div class="container mx-auto px-4 max-w-5xl relative">
 
-    <div class="container mx-auto px-4 py-8 max-w-5xl relative">
-
-        <button id="theme-toggle" class="absolute top-4 right-4 p-2 rounded-full border border-gray-400 text-gray-400 hover:text-[#f963a7] hover:border-[#f963a7] transition-colors duration-300 focus:outline-none">
-            <svg id="moon-icon" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 3a9 9 0 00-9 9 9 9 0 009 9c2.614 0 5.084-.972 6.946-2.73a.75.75 0 00-.916-1.196 7.5 7.5 0 01-6.03 2.196A7.5 7.5 0 014.5 12a7.5 7.5 0 0110.598-6.666.75.75 0 001.076-1.04A9.001 9.001 0 0012 3z" />
-            </svg>
-            <svg id="sun-icon" class="h-6 w-6 hidden" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="absolute top-4 right-4 z-10 p-2 rounded-full border border-gray-600 text-gray-400 hover:text-white hover:border-white transition-colors duration-300 focus:outline-none">
+            <!-- Sun SVG for Light Mode -->
+            <svg id="sun-icon" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12 3a1 1 0 011 1v2a1 1 0 11-2 0V4a1 1 0 011-1zM18.364 4.929a1 1 0 01.707.293l1.414 1.414a1 1 0 01-1.414 1.414l-1.414-1.414a1 1 0 01.293-1.707zM21 11a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1zM18.364 18.071a1 1 0 01-.293.707l-1.414 1.414a1 1 0 01-1.414-1.414l1.414-1.414a1 1 0 011.707.293zM12 21a1 1 0 01-1-1v-2a1 1 0 112 0v2a1 1 0 01-1 1zM5.636 18.071a1 1 0 01-1.414-.293l-1.414-1.414a1 1 0 011.414-1.414l1.414 1.414a1 1 0 01-.293 1.707zM3 13a1 1 0 01-1-1v-2a1 1 0 112 0v2a1 1 0 01-1 1zM5.636 5.929a1 1 0 01.293-1.707l1.414-1.414a1 1 0 011.414 1.414l-1.414 1.414a1 1 0 01-1.707-.293zM12 8a4 4 0 100 8 4 4 0 000-8z"/>
+            </svg>
+            <!-- Moon SVG for Dark Mode -->
+            <svg id="moon-icon" class="h-6 w-6 hidden" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3a9 9 0 00-9 9 9 9 0 009 9c2.614 0 5.084-.972 6.946-2.73a.75.75 0 00-.916-1.196 7.5 7.5 0 01-6.03 2.196A7.5 7.5 0 014.5 12a7.5 7.5 0 0110.598-6.666.75.75 0 001.076-1.04A9.001 9.001 0 0012 3z" />
             </svg>
         </button>
 
-        <header class="text-center mb-12">
-            <h1 class="text-5xl font-bold text-gradient mb-2">LP</h1>
-            <h2 class="text-5xl font-bold mb-1">Luke Ponga</h2>
-            <p class="text-gray-400">Freelance Software Developer</p>
-        </header>
-
-        <section id="about" class="mb-12">
-            <h3 class="text-2xl font-bold text-center mb-4">About Me</h3>
-            <div class="p-6 rounded-2xl neon-border shadow-lg">
-                <p class="text-gray-300 leading-relaxed">
-                    I'm a freelance software developer with expertise in building scalable applications and creating visually compelling and intuitive user interfaces. I specialize in both front-end and back-end development, with proficiency in a variety of modern frameworks and languages. My passion lies in crafting elegant and innovative solutions that not only meet user needs but exceed expectations. I'm a highly motivated, organized, and collaborative professional, eager to leverage my skills to create a lasting impact and contribute to challenging projects.
-                </p>
-            </div>
+        <!-- Hero Banner Section -->
+        <section id="hero-banner" class="min-h-screen flex flex-col items-center justify-center text-center py-16">
+            <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold text-white mb-4">Luke Ponga</h1>
+            <p class="text-xl sm:text-2xl text-muted-color font-semibold">Freelance Software Developer</p>
         </section>
 
-        <section id="skills" class="mb-12">
-            <h3 class="text-2xl font-bold text-center mb-4">My Skills</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-                <div class="p-6 rounded-2xl neon-border shadow-lg">
-                    <h4 class="text-xl font-semibold text-gradient mb-3">Languages</h4>
-                    <ul class="list-disc pl-5 text-gray-300 space-y-2">
-                        <li>JavaScript</li>
-                        <li>TypeScript</li>
-                        <li>Python</li>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>SQL</li>
-                    </ul>
-                </div>
-
-                <div class="p-6 rounded-2xl neon-border shadow-lg">
-                    <h4 class="text-xl font-semibold text-gradient mb-3">Frameworks</h4>
-                    <ul class="list-disc pl-5 text-gray-300 space-y-2">
-                        <li>React</li>
-                        <li>Node.js</li>
-                        <li>Express</li>
-                        <li>Django</li>
-                        <li>Tailwind CSS</li>
-                    </ul>
-                </div>
-
-                <div class="p-6 rounded-2xl neon-border shadow-lg">
-                    <h4 class="text-xl font-semibold text-gradient mb-3">Dev-Ops</h4>
-                    <ul class="list-disc pl-5 text-gray-300 space-y-2">
-                        <li>Git & GitHub</li>
-                        <li>Docker</li>
-                        <li>RESTful APIs</li>
-                        <li>CI/CD Pipelines</li>
-                        <li>Cloud Hosting (AWS, GCP)</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="mb-12">
-            <h3 class="text-2xl font-bold text-center mb-4">Featured Projects</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-                <div class="p-6 rounded-2xl neon-border shadow-lg">
-                    <h4 class="text-xl font-semibold text-gradient mb-2">Doctors Appointments</h4>
-                    <p class="text-gray-300 text-sm mb-4">
-                        A web application for booking and managing doctor appointments, with features for scheduling, user authentication, and profile management.
+        <!-- All other sections follow -->
+        <div class="py-8">
+            <!-- About Me Section -->
+            <section id="about" class="mb-12">
+                <h3 class="text-3xl font-bold text-center mb-6 section-title">About Me</h3>
+                <div class="p-8 rounded-xl card transition-transform transform hover:scale-[1.01] duration-300">
+                    <p class="text-lg leading-relaxed text-muted-color">
+                        I'm hardworking and always willing to learn. I enjoy problem-solving and I'm keen on an Information Technology position. I'm eager to grow in a professional environment.
                     </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="px-4 py-2 rounded-full border border-[#f963a7] text-[#f963a7] hover:bg-[#f963a7] hover:text-white transition-colors duration-300">Live Demo</a>
-                        <a href="#" class="px-4 py-2 rounded-full border border-[#f963a7] text-[#f963a7] hover:bg-[#f963a7] hover:text-white transition-colors duration-300">GitHub Repo</a>
+                </div>
+            </section>
+
+            <!-- My Skills Section -->
+            <section id="skills" class="mb-12">
+                <h3 class="text-3xl font-bold text-center mb-6 section-title">My Skills</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Column 1: Technical Skills -->
+                    <div class="p-6 rounded-xl card transition-transform transform hover:scale-[1.01] duration-300">
+                        <h4 class="text-xl font-semibold mb-3">Technical Skills</h4>
+                        <ul class="list-disc pl-5 space-y-2 text-sm text-muted-color">
+                            <li>Problem Solving</li>
+                            <li>Technical Support</li>
+                            <li>Programming (C#, Java, HTML, CSS, JavaScript)</li>
+                            <li>Tech Setups: Windows, Microsoft Office Suite</li>
+                            <li>Microsoft Excel, Word</li>
+                            <li>Logical Reasoning, Analytical</li>
+                        </ul>
+                    </div>
+                    <!-- Column 2: Soft Skills -->
+                    <div class="p-6 rounded-xl card transition-transform transform hover:scale-[1.01] duration-300">
+                        <h4 class="text-xl font-semibold mb-3">Soft Skills</h4>
+                        <ul class="list-disc pl-5 space-y-2 text-sm text-muted-color">
+                            <li>Communication</li>
+                            <li>Teamwork</li>
+                            <li>Adaptability</li>
+                            <li>Willingness to Learn</li>
+                            <li>Attention to Detail</li>
+                        </ul>
+                    </div>
+                    <!-- Column 3: Certifications -->
+                    <div class="p-6 rounded-xl card transition-transform transform hover:scale-[1.01] duration-300">
+                        <h4 class="text-xl font-semibold mb-3">Certifications</h4>
+                        <ul class="list-disc pl-5 space-y-2 text-sm text-muted-color">
+                            <li>ISTQB Certified Tester Foundation Level (CTFL)</li>
+                            <li>Microsoft Build: Natural Language AI Certificate</li>
+                        </ul>
                     </div>
                 </div>
+            </section>
 
-                <div class="p-6 rounded-2xl neon-border shadow-lg">
-                    <h4 class="text-xl font-semibold text-gradient mb-2">Vehicle API</h4>
-                    <p class="text-gray-300 text-sm mb-4">
-                        A robust RESTful API to manage vehicle information, including endpoints for CRUD operations and vehicle data retrieval.
+            <!-- Featured Projects Section -->
+            <section id="projects" class="mb-12">
+                <h3 class="text-3xl font-bold text-center mb-6 section-title">Featured Projects</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Project 1 -->
+                    <div class="p-6 rounded-xl card transition-transform transform hover:scale-[1.01] duration-300">
+                        <h4 class="text-xl font-semibold mb-2">Doctors Appointments</h4>
+                        <p class="text-sm text-muted-color mb-4">
+                            A web application for booking and managing doctor appointments, with features for scheduling, user authentication, and profile management.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="px-4 py-2 rounded-full border btn-secondary transition-colors duration-300">Live Demo</a>
+                            <a href="#" class="px-4 py-2 rounded-full border btn-secondary transition-colors duration-300">GitHub Repo</a>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="p-6 rounded-xl card transition-transform transform hover:scale-[1.01] duration-300">
+                        <h4 class="text-xl font-semibold mb-2">Vehicle API</h4>
+                        <p class="text-sm text-muted-color mb-4">
+                            A robust RESTful API to manage vehicle information, including endpoints for CRUD operations and vehicle data retrieval.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="px-4 py-2 rounded-full border btn-secondary transition-colors duration-300">Live Demo</a>
+                            <a href="#" class="px-4 py-2 rounded-full border btn-secondary transition-colors duration-300">GitHub Repo</a>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="p-6 rounded-xl card transition-transform transform hover:scale-[1.01] duration-300">
+                        <h4 class="text-xl font-semibold mb-2">CosmicPic</h4>
+                        <p class="text-sm text-muted-color mb-4">
+                            An astronomical web application that fetches and displays high-quality images from the NASA APOD API based on user-selected criteria.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="px-4 py-2 rounded-full border btn-secondary transition-colors duration-300">Live Demo</a>
+                            <a href="#" class="px-4 py-2 rounded-full border btn-secondary transition-colors duration-300">GitHub Repo</a>
+                        </div>
+                    </div>
+                    <!-- Project 4 -->
+                    <div class="p-6 rounded-xl card transition-transform transform hover:scale-[1.01] duration-300">
+                        <h4 class="text-xl font-semibold mb-2">Crypto_Stats</h4>
+                        <p class="text-sm text-muted-color mb-4">
+                            A cryptocurrency dashboard that displays live market data, charts, and news for various cryptocurrencies using real-time APIs.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="px-4 py-2 rounded-full border btn-secondary transition-colors duration-300">Live Demo</a>
+                            <a href="#" class="px-4 py-2 rounded-full border btn-secondary transition-colors duration-300">GitHub Repo</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education" class="mb-12">
+                <h3 class="text-3xl font-bold text-center mb-6 section-title">Education</h3>
+                <div class="space-y-4">
+                    <div class="p-4 rounded-xl card transition-transform transform hover:scale-[1.01] duration-300">
+                        <p class="font-semibold">Diploma in Software Development</p>
+                        <p class="text-sm text-muted-color">ATC Vision College, Hamilton, NZ | 2020-2021</p>
+                    </div>
+                    <div class="p-4 rounded-xl card transition-transform transform hover:scale-[1.01] duration-300">
+                        <p class="font-semibold">Diploma in Web Development & Design</p>
+                        <p class="text-sm text-muted-color">ATC Vision College, Hamilton, NZ | 2019-2020</p>
+                    </div>
+                    <div class="p-4 rounded-xl card transition-transform transform hover:scale-[1.01] duration-300">
+                        <p class="font-semibold">Certificate in Business Administration & Technology</p>
+                        <p class="text-sm text-muted-color">ATC Vision College, Hamilton, NZ | 2018</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact/Email Section -->
+            <section id="contact" class="mb-12">
+                <div class="text-center">
+                    <h3 class="text-2xl sm:text-3xl font-bold text-center mb-4 section-title">Get in Touch</h3>
+                    <p class="contact-text text-lg sm:text-xl font-semibold">
+                        <a href="mailto:lukeponga9@gmail.com" class="hover:underline">lukeponga9@gmail.com</a>
                     </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="px-4 py-2 rounded-full border border-[#f963a7] text-[#f963a7] hover:bg-[#f963a7] hover:text-white transition-colors duration-300">Live Demo</a>
-                        <a href="#" class="px-4 py-2 rounded-full border border-[#f963a7] text-[#f963a7] hover:bg-[#f963a7] hover:text-white transition-colors duration-300">GitHub Repo</a>
-                    </div>
                 </div>
-
-                <div class="p-6 rounded-2xl neon-border shadow-lg">
-                    <h4 class="text-xl font-semibold text-gradient mb-2">CosmicPic</h4>
-                    <p class="text-gray-300 text-sm mb-4">
-                        An astronomical web application that fetches and displays high-quality images from the NASA APOD API based on user-selected criteria.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="px-4 py-2 rounded-full border border-[#f963a7] text-[#f963a7] hover:bg-[#f963a7] hover:text-white transition-colors duration-300">Live Demo</a>
-                        <a href="#" class="px-4 py-2 rounded-full border border-[#f963a7] text-[#f963a7] hover:bg-[#f963a7] hover:text-white transition-colors duration-300">GitHub Repo</a>
-                    </div>
-                </div>
-
-                <div class="p-6 rounded-2xl neon-border shadow-lg">
-                    <h4 class="text-xl font-semibold text-gradient mb-2">Crypto_Stats</h4>
-                    <p class="text-gray-300 text-sm mb-4">
-                        A cryptocurrency dashboard that displays live market data, charts, and news for various cryptocurrencies using real-time APIs.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="px-4 py-2 rounded-full border border-[#f963a7] text-[#f963a7] hover:bg-[#f963a7] hover:text-white transition-colors duration-300">Live Demo</a>
-                        <a href="#" class="px-4 py-2 rounded-full border border-[#f963a7] text-[#f963a7] hover:bg-[#f963a7] hover:text-white transition-colors duration-300">GitHub Repo</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="education" class="mb-12">
-            <h3 class="text-2xl font-bold text-center mb-4">Education</h3>
-            <div class="space-y-4">
-                <div class="p-4 rounded-2xl neon-border shadow-lg">
-                    <p class="text-white font-semibold">Level 5 Diploma in Software Development</p>
-                    <p class="text-gray-400">Unitech New Zealand - 2020-2022</p>
-                </div>
-                <div class="p-4 rounded-2xl neon-border shadow-lg">
-                    <p class="text-white font-semibold">Level 6 Diploma in Web Development & Design</p>
-                    <p class="text-gray-400">Unitech New Zealand - 2022-2023</p>
-                </div>
-                <div class="p-4 rounded-2xl neon-border shadow-lg">
-                    <p class="text-white font-semibold">Generative AI Certificate</p>
-                    <p class="text-gray-400">Google Cloud Skills Boost</p>
-                </div>
-                <div class="p-4 rounded-2xl neon-border shadow-lg">
-                    <p class="text-white font-semibold">Microsoft AI-900: AI Fundamentals</p>
-                    <p class="text-gray-400">Microsoft Official Certification</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="mb-12">
-            <h3 class="text-2xl font-bold text-center mb-4">Get In Touch</h3>
-            <div class="p-6 rounded-2xl neon-border shadow-lg">
-                <div id="form-message" class="hidden p-4 mb-4 rounded-xl text-center text-lg font-bold" style="border: 2px solid #34d399; background-color: #1a1a2e; color: #34d399;">
-                    Thanks for your message! I'll get back to you shortly.
-                </div>
-                <form id="contact-form" class="space-y-4">
-                    <div>
-                        <label for="name" class="block text-sm font-medium mb-1">Your Name</label>
-                        <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f963a7] transition-all duration-200" required>
-                    </div>
-                    <div>
-                        <label for="email" class="block text-sm font-medium mb-1">Your Email</label>
-                        <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f963a7] transition-all duration-200" required>
-                    </div>
-                    <div>
-                        <label for="message" class="block text-sm font-medium mb-1">Message</label>
-                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f963a7] transition-all duration-200" required></textarea>
-                    </div>
-                    <button type="submit" class="w-full px-6 py-3 rounded-lg text-lg font-semibold btn-submit hover:opacity-80 transition-opacity duration-300">
-                        Send Message
-                    </button>
-                </form>
-                <div class="flex justify-center space-x-6 mt-6">
-                    <a href="#" class="text-2xl text-white hover:text-[#f963a7] transition-colors duration-300">
-                        <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.417 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.368-1.344-3.368-1.344-.454-1.154-1.11-1.46-1.11-1.46-.908-.619.069-.607.069-.607 1.004.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.086 2.902.829.091-.645.353-1.086.643-1.339-2.22-.253-4.555-1.115-4.555-4.954 0-1.092.39-1.988 1.029-2.681-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.022A9.68 9.68 0 0112 5.688c.85.004 1.704.111 2.504.327 1.909-1.292 2.749-1.022 2.749-1.022.546 1.379.202 2.398.099 2.651.64.693 1.028 1.589 1.028 2.681 0 3.84-2.339 4.691-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.577.688.482C21.056 20.218 24 16.44 24 12.017 24 6.484 19.522 2 14.017 2H12z" clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                    <a href="#" class="text-2xl text-white hover:text-[#f963a7] transition-colors duration-300">
-                        <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M19 0H5C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5V5c0-2.761-2.239-5-5-5zm-4.735 15.687h-2.906V9.452h2.906V15.687zM9.593 8.35c-.947 0-1.713-.766-1.713-1.713 0-.947.766-1.713 1.713-1.713s1.713.766 1.713 1.713c0 .947-.766 1.713-1.713 1.713zM19.067 20H4.934a2.934 2.934 0 01-2.934-2.934V4.934a2.934 2.934 0 012.934-2.934h14.133a2.934 2.934 0 012.934 2.934v12.133a2.934 2.934 0 01-2.934 2.934zM16.92 12.01c0-1.282-.5-2.096-1.574-2.096-1.075 0-1.574.814-1.574 2.096v5.677h-2.906V11.23c0-.947.5-1.574 1.574-1.574 1.075 0 1.574.627 1.574 1.574v6.457h2.906V12.01z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleButton = document.getElementById('theme-toggle');
+            const sunIcon = document.getElementById('sun-icon');
+            const moonIcon = document.getElementById('moon-icon');
+            const html = document.documentElement;
+
+            // Check for theme in local storage on page load
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                // Ensure to clear any default theme before adding the saved one
+                html.classList.remove('dark', 'light');
+                html.classList.add(savedTheme);
+            } else {
+                // Default to dark mode if no preference is saved
+                html.classList.add('dark');
+            }
+
+            // Function to update the icons based on the current theme
+            function updateThemeIcons() {
+                if (html.classList.contains('light')) {
+                    sunIcon.classList.remove('hidden');
+                    moonIcon.classList.add('hidden');
+                } else {
+                    moonIcon.classList.remove('hidden');
+                    sunIcon.classList.add('hidden');
+                }
+            }
+            
+            // Set initial state on load
+            updateThemeIcons();
+
+            // Handle theme toggle
+            toggleButton.addEventListener('click', () => {
+                if (html.classList.contains('light')) {
+                    html.classList.remove('light');
+                    html.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    html.classList.remove('dark');
+                    html.classList.add('light');
+                    localStorage.setItem('theme', 'light');
+                }
+                updateThemeIcons();
+            });
+        });
+    </script>
 
 </body>
 </html>
