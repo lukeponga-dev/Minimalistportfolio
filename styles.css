@@ -1,81 +1,95 @@
+/* src/styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Define CSS Custom Properties (Variables) for dark theme (default) */
 :root {
-    --bg-color: #121212;
-    --text-color: #f0f0f0;
-    --card-bg: #1e1e1e;
-    --card-border: #333333;
-    --card-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-    --section-title-color: #ff4d6d;
-    --text-muted: #d1d5db;
-    --btn-secondary-border: #444444;
-    --btn-secondary-text: #ff4d6d;
-    --link-hover-color: #3b82f6;
-    --btn-secondary-hover-bg: #2a2a2a;
-    --btn-secondary-hover-text: #fff;
-    --scrollbar-track-color: #1e1e1e;
-    --scrollbar-thumb-color: #ff4d6d;
+  --bg-color: #121212;
+  --text-color: #f0f0f0;
+  --card-bg: #1e1e1e;
+  --card-border: #333333;
+  --card-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  --section-title-color: #ff4d6d;
+  --text-muted: #d1d5db;
+  --btn-secondary-border: #444444;
+  --btn-secondary-text: #ff4d6d;
+  --link-hover-color: #3b82f6;
+  --btn-secondary-hover-bg: #2a2a2a;
+  --btn-secondary-hover-text: #fff;
+  --scrollbar-track-color: #1e1e1e;
+  --scrollbar-thumb-color: #ff4d6d;
 }
 
 /* Override variables for light theme */
 .light {
-    --bg-color: #e0e0e0;
-    --text-color: #2c2c2c;
-    --card-bg: #ffffff;
-    --card-border: #cccccc;
-    --card-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    --section-title-color: #c90035;
-    --text-muted: #525252;
-    --btn-secondary-border: #cccccc;
-    --btn-secondary-text: #c90035;
-    --link-hover-color: #c90035;
-    --btn-secondary-hover-bg: #f0f0f0;
-    --btn-secondary-hover-text: #2c2c2c;
-    --scrollbar-track-color: #e0e0e0;
-    --scrollbar-thumb-color: #c90035;
+  --bg-color: #e0e0e0;
+  --text-color: #2c2c2c;
+  --card-bg: #ffffff;
+  --card-border: #cccccc;
+  --card-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  --section-title-color: #c90035;
+  --text-muted: #525252;
+  --btn-secondary-border: #cccccc;
+  --btn-secondary-text: #c90035;
+  --link-hover-color: #c90035;
+  --btn-secondary-hover-bg: #f0f0f0;
+  --btn-secondary-hover-text: #2c2c2c;
+  --scrollbar-track-color: #e0e0e0;
+  --scrollbar-thumb-color: #c90035;
 }
 
 /* Apply variables to general body and element styles */
 body {
-    font-family: 'Inter', sans-serif;
-    transition: background-color 0.4s, color 0.4s;
-    background-color: var(--bg-color);
-    color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.4s, color 0.4s;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
+
 .card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--card-border);
-    box-shadow: var(--card-shadow);
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
 }
+
 .section-title {
-    color: var(--section-title-color);
+  color: var(--section-title-color);
 }
+
 .text-muted-color {
-    color: var(--text-muted);
+  color: var(--text-muted);
 }
+
 .btn-secondary {
-    border-color: var(--btn-secondary-border);
-    color: var(--btn-secondary-text);
-    transition: background-color 0.3s, color 0.3s;
+  border-color: var(--btn-secondary-border);
+  color: var(--btn-secondary-text);
+  transition: background-color 0.3s, color 0.3s;
 }
+
 .btn-secondary:hover {
-    background-color: var(--btn-secondary-hover-bg);
-    color: var(--btn-secondary-hover-text);
+  background-color: var(--btn-secondary-hover-bg);
+  color: var(--btn-secondary-hover-text);
 }
+
 .contact-text {
-    color: var(--section-title-color);
+  color: var(--section-title-color);
 }
+
 .hover\:text-blue-500:hover {
-    color: var(--link-hover-color);
+  color: var(--link-hover-color);
 }
 
 /* Custom scrollbar styling using variables */
 ::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
+
 ::-webkit-scrollbar-track {
-    background: var(--scrollbar-track-color);
+  background: var(--scrollbar-track-color);
 }
+
 ::-webkit-scrollbar-thumb {
-    background-color: var(--scrollbar-thumb-color);
-    border-radius: 4px;
+  background-color: var(--scrollbar-thumb-color);
+  border-radius: 4px;
 }
