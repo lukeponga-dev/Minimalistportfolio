@@ -1,9 +1,14 @@
-Luke Ponga's Portfolio
-Welcome to the personal portfolio of Luke Ponga, a freelance software developer. This repository showcases a collection of my projects, skills, and professional experience.
-🚀 Overview
+# Luke Ponga's Portfolio
+## Welcome to the personal portfolio of Luke 
+
+Ponga, a freelance software developer. This repository showcases a collection of my projects, skills, and professional experience.
+
+### 🚀 Overview
 This website serves as a digital resume and a showcase for my work. It's built to be clean, responsive, and easy to navigate, providing a clear overview of my technical skills, soft skills, education, and featured projects. The site also includes a dynamic theme toggle to switch between dark and light modes.
-✨ Features
+### ✨ Features
+
 Responsive Design: The layout adapts seamlessly to different screen sizes, from mobile devices to desktop computers.
+
 Dark/Light Theme Toggle: A user-friendly button allows visitors to switch between two distinct color themes, with their preference saved in local storage.
 Clear Sections: The content is organized into logical sections: Hero Banner, About Me, My Skills, Featured Projects, Education, and Contact.
 Dynamic Content: Each section is designed to highlight key information in an organized and visually appealing manner.
